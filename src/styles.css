@@ -126,7 +126,7 @@ span.header-left {
     transform: translate3d(-50%, 0%, 0);
     font-size: 2em;
     width: 90%;
-    position: relative;
+    position: absolute;
     top: 400px;
 
     /* letter-spacing: -5px; */
