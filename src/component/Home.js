@@ -5,8 +5,8 @@ import { useTransition, a } from "react-spring";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls, draco, Stars } from "drei";
 import Typewriter from "typewriter-effect";
-
-
+import Wave from "./Wave";
+import Ab1 from "./Ab1";
 
 function Model({ url }) {
   const { nodes, materials } = useLoader(GLTFLoader, url, draco());
@@ -67,10 +67,9 @@ export default function Home() {
     <>
       <div className="bg" />
       <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#fff"></path>
-      <div id="h3" >
+      <div id="h3">
         {" "}
         <Typewriter
-        
           options={{
             loop: true,
           }}
@@ -81,7 +80,7 @@ export default function Home() {
 
               .pauseFor(1000)
               .deleteAll()
-              .typeString("Welcomes You to my world of Fullstack Web Dev....")
+              .typeString("Welcome  to my world of Fullstack Web Dev....")
               .start();
           }}
         />
@@ -122,12 +121,16 @@ export default function Home() {
       <div className="layer" />
       <Loading />
 
-      <div className="w-[100%] h-[200px]  bg-white">
+      <div id="wh-div" className="w-[100%] h-[200px]  lg:h-[50px]  bg-white">
         <img
           className=" w-[250px] sm:w-[300px] bottom-[-10%] left-[20%]  sm:left-[60%] md:w-[400px]  lg:w-[400px] absolute md:bottom-[-20%] md:left-[60%] lg:bottom-[-20%] lg:left-[60%]"
           src="/astro-mona.webp"
           alt="logo"
         />
+      </div>
+      <Wave/>
+      <div className="bg-mybg">
+        <Ab1/>
       </div>
     </>
   );

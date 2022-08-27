@@ -52,8 +52,8 @@ body {
   position: absolute;
   bottom: 120px;
   left: 50%;
-  font-style: italic;
-  font-family: "Josefin Sans", sans-serif;
+  /* font-style: italic; */
+  /* font-family: "Josefin Sans", sans-serif; */
   font-weight: 800;
   font-size: 3em;
   transform: translate3d(-50%, 0, 0);
