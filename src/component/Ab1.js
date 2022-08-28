@@ -66,7 +66,7 @@ function Ab1() {
                   className={
                     pressme
                       ? "w-[250px] animate__animated animate__slideInRight h-[240px] relative left-6 top-6 border rounded-md border-[peru]"
-                      : "w-[250px] animate__animated animate__slideInRight -left-10 sm:left-20 h-[250px] relative md:left-8 lg:left-10 top-5 border rounded-md border-[peru]"
+                      : "w-[250px] animate__animated animate__slideInRight -left-16 sm:left-20 h-[250px] relative md:left-8 lg:left-10 top-5 border rounded-md border-[peru]"
                   }
                 ></div>
               </div>
