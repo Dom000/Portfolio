@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         mybg: "rgb(40, 30, 52)",
+        mybg2: "#362835",
       },
     },
   },
