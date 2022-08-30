@@ -180,12 +180,12 @@ function Ab1() {
       </div>
 
       <div>
-        <div className=" md:flex lg:flex mb-10">
+        <div className=" flex mb-10">
           <h1 className="text-[#cfcfcf] font-bold text-3xl lg:text-4xl">
             <span className="text-4xl ">_</span> Some Things I’ve Built
           </h1>
           <div>
-            <hr className=" w-[150px] sm:w-[150px] md:w-[350px] lg:w-[400px] mt-2 md:mt-10 lg:mt-10 ml-1" />
+            <hr className=" w-[50px] sm:w-[150px] md:w-[350px] lg:w-[400px] mt-2 md:mt-10 lg:mt-10 ml-1" />
           </div>
         </div>
         <div className=" md:flex lg:flex my-5 mb-8">
