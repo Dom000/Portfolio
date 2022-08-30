@@ -123,7 +123,7 @@ export default function Home() {
 
       <div id="wh-div" className="w-[100%] h-[250px]  lg:h-[50px]  bg-white">
         <img
-          className=" w-[250px] sm:w-[300px] bottom-[-10%] left-[20%]  sm:left-[60%] md:w-[400px]  lg:w-[400px] absolute md:bottom-[-20%] md:left-[60%] lg:bottom-[-20%] lg:left-[60%]"
+          className=" w-[250px] sm:w-[300px] bottom-[-10%] left-[20%]  sm:left-[60%] md:w-[400px]  lg:w-[400px] absolute md:bottom-[-20%] md:left-[50%] lg:bottom-[-20%] lg:left-[60%]"
           src="/astro-mona.webp"
           alt="logo"
         />

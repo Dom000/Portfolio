@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "animate.css";
 import { VscGithub } from "react-icons/vsc";
 import { BsGlobe } from "react-icons/bs";
-import {BsArrowDown} from "react-icons/bs";
+import { BsArrowDown } from "react-icons/bs";
+import Slide from "react-reveal/Slide";
 
 function Ab1() {
   const [pressme, setPressMe] = useState(false);
@@ -179,16 +180,15 @@ function Ab1() {
       </div>
 
       <div>
-        <div className="flex mb-10">
+        <div className=" md:flex lg:flex mb-10">
           <h1 className="text-[#cfcfcf] font-bold text-3xl lg:text-4xl">
             <span className="text-4xl ">_</span> Some Things I’ve Built
           </h1>
           <div>
-            <hr className=" w-[100px] sm:w-[150px] md:w-[350px] lg:w-[400px] mt-10 ml-1" />
+            <hr className=" w-[150px] sm:w-[150px] md:w-[350px] lg:w-[400px] mt-2 md:mt-10 lg:mt-10 ml-1" />
           </div>
         </div>
-
-        <div className="flex my-5">
+        <div className=" md:flex lg:flex my-5 mb-8">
           <div className="relative group max-w-[600px] cursor-pointer">
             <div className="w-full  ">
               <img
@@ -198,7 +198,7 @@ function Ab1() {
             </div>
             <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
           </div>
-          <div className="absolute mt-[20px] ml-[450px] max-w-[700px]">
+          <div className=" md:absolute lg:absolute mt-[20px] md:ml-[200px] lg:ml-[450px] max-w-[700px]">
             <div className="text-right">
               <p className=" italic text-[peru]">-Featured Project-</p>
               <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
@@ -206,7 +206,7 @@ function Ab1() {
                 Halcyon Theme
               </h1>
             </div>
-            <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 max-w-[700px] h-[200px]  w-[650px]">
+            <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 md:max-w-[700px] lg:max-w-[700px] h-md:w-[650px] lg:w-[650px]">
               <p className="text-xl text-[peru] my-3">
                 I'm a software engineer who specializes in creating (and
                 sometimes designing) exceptional digital experiences. At the
@@ -214,7 +214,7 @@ function Ab1() {
                 human-centered products.
               </p>
             </div>
-            <div className="my-5 flex justify-end ">
+            <div className="my-5 flex flex-wrap justify-end ">
               <pre className="text-[#b9b9b9] mr-3">React</pre>
               <pre className="text-[#b9b9b9] mr-3">React</pre>
               <pre className="text-[#b9b9b9] mr-3">React</pre>
@@ -234,153 +234,154 @@ function Ab1() {
               </div>
             </div>
           </div>
-        </div>
-        {show && (
-          <div>
-            <div className="flex my-5">
-              <div className="relative group max-w-[600px] cursor-pointer">
-                <div className="w-full  ">
-                  <img
-                    className="rounded-md w-[550px] h-[400px] object-cover"
-                    src="/1654249796121.jpg"
-                  />
+        </div>{" "}
+        <Slide top when={show}>
+          {show && (
+            <div>
+              <div className=" md:flex lg:flex my-5 mb-8">
+                <div className="relative group max-w-[600px] cursor-pointer">
+                  <div className="w-full  ">
+                    <img
+                      className="rounded-md w-[550px] h-[400px] object-cover"
+                      src="/1654249796121.jpg"
+                    />
+                  </div>
+                  <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
                 </div>
-                <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
-              </div>
-              <div className="absolute mt-[20px] ml-[450px] max-w-[700px]">
-                <div className="text-right">
-                  <p className=" italic text-[peru]">-Featured Project-</p>
-                  <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
-                    {" "}
-                    Halcyon Theme
-                  </h1>
-                </div>
-                <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 max-w-[700px] h-[200px]  w-[650px]">
-                  <p className="text-xl text-[peru] my-3">
-                    I'm a software engineer who specializes in creating (and
-                    sometimes designing) exceptional digital experiences. At the
-                    moment, I'm concentrating on creating user-friendly,
-                    human-centered products.
-                  </p>
-                </div>
-                <div className="my-5 flex justify-end ">
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                </div>
-                <div className="flex justify-end mr-[65px]">
-                  <div className="flex space-x-10 text-[#cfcfcf] ">
-                    <a href="#">
-                      <VscGithub className="text-[20px] hover:text-[peru]" />
-                    </a>
-                    <a href="#">
-                      <BsGlobe className=" text-[20px] hover:text-[peru]" />
-                    </a>
+                <div className=" md:absolute lg:absolute mt-[20px] md:ml-[200px] lg:ml-[450px] max-w-[700px]">
+                  <div className="text-right">
+                    <p className=" italic text-[peru]">-Featured Project-</p>
+                    <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
+                      {" "}
+                      Halcyon Theme
+                    </h1>
+                  </div>
+                  <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 max-w-[700px] h-w-[650px]">
+                    <p className="text-xl text-[peru] my-3">
+                      I'm a software engineer who specializes in creating (and
+                      sometimes designing) exceptional digital experiences. At
+                      the moment, I'm concentrating on creating user-friendly,
+                      human-centered products.
+                    </p>
+                  </div>
+                  <div className="my-5 flex flex-wrap justify-end ">
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                  </div>
+                  <div className="flex justify-end mr-[65px]">
+                    <div className="flex space-x-10 text-[#cfcfcf] ">
+                      <a href="#">
+                        <VscGithub className="text-[20px] hover:text-[peru]" />
+                      </a>
+                      <a href="#">
+                        <BsGlobe className=" text-[20px] hover:text-[peru]" />
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>{" "}
-            <div className="flex my-5">
-              <div className="relative group max-w-[600px] cursor-pointer">
-                <div className="w-full  ">
-                  <img
-                    className="rounded-md w-[550px] h-[400px] object-cover"
-                    src="/1654249796121.jpg"
-                  />
+              </div>{" "}
+              <div className=" md:flex lg:flex my-5 mb-8">
+                <div className="relative group max-w-[600px] cursor-pointer">
+                  <div className="w-full  ">
+                    <img
+                      className="rounded-md w-[550px] h-[400px] object-cover"
+                      src="/1654249796121.jpg"
+                    />
+                  </div>
+                  <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
                 </div>
-                <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
-              </div>
-              <div className="absolute mt-[20px] ml-[450px] max-w-[700px]">
-                <div className="text-right">
-                  <p className=" italic text-[peru]">-Featured Project-</p>
-                  <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
-                    {" "}
-                    Halcyon Theme
-                  </h1>
-                </div>
-                <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 max-w-[700px] h-[200px]  w-[650px]">
-                  <p className="text-xl text-[peru] my-3">
-                    I'm a software engineer who specializes in creating (and
-                    sometimes designing) exceptional digital experiences. At the
-                    moment, I'm concentrating on creating user-friendly,
-                    human-centered products.
-                  </p>
-                </div>
-                <div className="my-5 flex justify-end ">
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                </div>
-                <div className="flex justify-end mr-[65px]">
-                  <div className="flex space-x-10 text-[#cfcfcf] ">
-                    <a href="#">
-                      <VscGithub className="text-[20px] hover:text-[peru]" />
-                    </a>
-                    <a href="#">
-                      <BsGlobe className=" text-[20px] hover:text-[peru]" />
-                    </a>
+                <div className=" md:absolute lg:absolute mt-[20px] md:ml-[200px] lg:ml-[450px] max-w-[700px]">
+                  <div className="text-right">
+                    <p className=" italic text-[peru]">-Featured Project-</p>
+                    <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
+                      {" "}
+                      Halcyon Theme
+                    </h1>
+                  </div>
+                  <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 max-w-[700px] h-w-[650px]">
+                    <p className="text-xl text-[peru] my-3">
+                      I'm a software engineer who specializes in creating (and
+                      sometimes designing) exceptional digital experiences. At
+                      the moment, I'm concentrating on creating user-friendly,
+                      human-centered products.
+                    </p>
+                  </div>
+                  <div className="my-5 flex flex-wrap justify-end ">
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                  </div>
+                  <div className="flex justify-end mr-[65px]">
+                    <div className="flex space-x-10 text-[#cfcfcf] ">
+                      <a href="#">
+                        <VscGithub className="text-[20px] hover:text-[peru]" />
+                      </a>
+                      <a href="#">
+                        <BsGlobe className=" text-[20px] hover:text-[peru]" />
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>{" "}
-            <div className="flex my-5">
-              <div className="relative group max-w-[600px] cursor-pointer">
-                <div className="w-full  ">
-                  <img
-                    className="rounded-md w-[550px] h-[400px] object-cover"
-                    src="/1654249796121.jpg"
-                  />
+              </div>{" "}
+              <div className=" md:flex lg:flex my-5 mb-8">
+                <div className="relative group max-w-[600px] cursor-pointer">
+                  <div className="w-full  ">
+                    <img
+                      className="rounded-md w-[550px] h-[400px] object-cover"
+                      src="/1654249796121.jpg"
+                    />
+                  </div>
+                  <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
                 </div>
-                <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
-              </div>
-              <div className="absolute mt-[20px] ml-[450px] max-w-[700px]">
-                <div className="text-right">
-                  <p className=" italic text-[peru]">-Featured Project-</p>
-                  <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
-                    {" "}
-                    Halcyon Theme
-                  </h1>
-                </div>
-                <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 max-w-[700px] h-[200px]  w-[650px]">
-                  <p className="text-xl text-[peru] my-3">
-                    I'm a software engineer who specializes in creating (and
-                    sometimes designing) exceptional digital experiences. At the
-                    moment, I'm concentrating on creating user-friendly,
-                    human-centered products.
-                  </p>
-                </div>
-                <div className="my-5 flex justify-end ">
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  <pre className="text-[#b9b9b9] mr-3">React</pre>
-                </div>
-                <div className="flex justify-end mr-[65px]">
-                  <div className="flex space-x-10 text-[#cfcfcf] ">
-                    <a href="#">
-                      <VscGithub className="text-[20px] hover:text-[peru]" />
-                    </a>
-                    <a href="#">
-                      <BsGlobe className=" text-[20px] hover:text-[peru]" />
-                    </a>
+                <div className=" md:absolute lg:absolute mt-[20px] md:ml-[200px] lg:ml-[450px] max-w-[700px]">
+                  <div className="text-right">
+                    <p className=" italic text-[peru]">-Featured Project-</p>
+                    <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
+                      {" "}
+                      Halcyon Theme
+                    </h1>
+                  </div>
+                  <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 max-w-[700px] h-w-[650px]">
+                    <p className="text-xl text-[peru] my-3">
+                      I'm a software engineer who specializes in creating (and
+                      sometimes designing) exceptional digital experiences. At
+                      the moment, I'm concentrating on creating user-friendly,
+                      human-centered products.
+                    </p>
+                  </div>
+                  <div className="my-5 flex flex-wrap justify-end ">
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                    <pre className="text-[#b9b9b9] mr-3">React</pre>
+                  </div>
+                  <div className="flex justify-end mr-[65px]">
+                    <div className="flex space-x-10 text-[#cfcfcf] ">
+                      <a href="#">
+                        <VscGithub className="text-[20px] hover:text-[peru]" />
+                      </a>
+                      <a href="#">
+                        <BsGlobe className=" text-[20px] hover:text-[peru]" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
-
+          )}
+        </Slide>
         {show ? (
           <div
             onClick={() => {
