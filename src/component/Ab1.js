@@ -4,10 +4,13 @@ import { VscGithub } from "react-icons/vsc";
 import { BsGlobe } from "react-icons/bs";
 import { BsArrowDown } from "react-icons/bs";
 import Slide from "react-reveal/Slide";
+import Slider from "./Slider";
+
 
 function Ab1() {
   const [pressme, setPressMe] = useState(false);
   const [show, setShow] = useState(false);
+
   return (
     <div className="p-5 md:pl-10 lg:pl-10 pb-40">
       <div className="mb-20">
@@ -413,6 +416,19 @@ function Ab1() {
             </button>
           </div>
         )}
+      </div>
+
+      <div className="my-10">
+        <div className=" flex mb-10">
+          <h1 className="text-[#cfcfcf] font-bold text-3xl lg:text-4xl">
+            <span className="text-4xl ">_</span> Reviews of me
+          </h1>
+          <div>
+            <hr className=" w-[50px] sm:w-[150px] md:w-[350px] lg:w-[400px] mt-2 md:mt-10 lg:mt-10 ml-1" />
+          </div>
+        </div>
+        <Slider />
+        
       </div>
     </div>
   );

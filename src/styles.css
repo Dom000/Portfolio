@@ -11,6 +11,7 @@ canvas {
 
 body {
   background: linear-gradient(0deg, rgba(63, 12, 88, 0.2));
+  overflow-x: hidden;
 }
 
 .bg {
