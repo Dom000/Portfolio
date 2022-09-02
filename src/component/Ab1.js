@@ -5,7 +5,7 @@ import { BsGlobe } from "react-icons/bs";
 import { BsArrowDown } from "react-icons/bs";
 import Slide from "react-reveal/Slide";
 import Slider from "./Slider";
-
+import Contact from "./Contact";
 
 function Ab1() {
   const [pressme, setPressMe] = useState(false);
@@ -428,7 +428,10 @@ function Ab1() {
           </div>
         </div>
         <Slider />
-        
+      </div>
+
+      <div>
+        <Contact />
       </div>
     </div>
   );
