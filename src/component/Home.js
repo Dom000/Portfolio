@@ -88,7 +88,7 @@ export default function Home() {
             setSwitcher2(!switcher2);
           }}
           title="122 like this site"
-          className="cursor-pointer text-2xl mb-2"
+          className="cursor-pointer text-2xl mb-[10px]"
         >
           {switcher2 ? (
             <pre className="text-[8px] px-1 tracking-wider  bg-[peru]  text-center absolute right-6 rounded-full">
@@ -145,7 +145,7 @@ export default function Home() {
         />
       </div>
       <Canvas
-        // style={{ height: 500 }}
+        style={{ height: 500 }}
         shadowMap
         camera={{ position: [0, 0, 15] }}
       >
