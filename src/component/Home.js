@@ -68,7 +68,7 @@ export default function Home() {
   const [switcher2, setSwitcher2] = useState(false);
   return (
     <>
-      <div className="bg-[#797979]  rounded-full  bg-clip-padding backdrop-filter backdrop-blur-xl flex-col flex justify-center items-center bg-opacity-60 right-5  fixed  p-1 z-20 top-20 mr-2">
+      <div className="bg-[#797979]  rounded-full  bg-clip-padding backdrop-filter backdrop-blur-xl flex-col flex justify-center items-center bg-opacity-60 right-1  fixed  p-1 z-20 top-20 mr-1">
         <div
           onClick={() => {
             setSwitcher(!switcher);
