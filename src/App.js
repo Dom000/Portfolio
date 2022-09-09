@@ -9,6 +9,7 @@ function App() {
   return (
     <div>
       {/* <SnackbarProvider /> */}
+      
       <Header />
       <Home />
     </div>

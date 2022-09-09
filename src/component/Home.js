@@ -6,6 +6,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls, draco, Stars } from "drei";
 import Typewriter from "typewriter-effect";
 import Wave from "./Wave";
+import { AiOutlineGithub, AiFillLinkedin } from "react-icons/ai";
 import Ab1 from "./Ab1";
 
 function Model({ url }) {
@@ -63,12 +64,70 @@ function Loading() {
 }
 
 export default function Home() {
+  const [switcher, setSwitcher] = useState(false);
+  const [switcher2, setSwitcher2] = useState(false);
   return (
     <>
+      <div className="bg-[#797979]  rounded-full  bg-clip-padding backdrop-filter backdrop-blur-xl flex-col flex justify-center items-center bg-opacity-60 right-5  fixed  p-1 z-20 top-20 mr-2">
+        <div
+          onClick={() => {
+            setSwitcher(!switcher);
+          }}
+          title="122 viewd this site"
+          className="cursor-pointer text-2xl mb-2"
+        >
+          {switcher ? (
+            <pre className="text-[8px] tracking-wider px-1  bg-[peru]  text-center absolute right-6 rounded-full">
+              122 viewed this site
+            </pre>
+          ) : null}
+          👀
+        </div>
+        <div
+          onClick={() => {
+            setSwitcher2(!switcher2);
+          }}
+          title="122 like this site"
+          className="cursor-pointer text-2xl mb-2"
+        >
+          {switcher2 ? (
+            <pre className="text-[8px] px-1 tracking-wider  bg-[peru]  text-center absolute right-6 rounded-full">
+              122 viewed this site
+            </pre>
+          ) : null}
+          ❤️
+        </div>
+        <div
+          onClick={() => {
+            window.location.href = "https://wa.me/+2347082524010";
+          }}
+          // title="watsapp me"
+          className="cursor-pointer text-3xl mb-2"
+        >
+          <img src="/whatsapp.png" alt="" className="w-7 h-7" />
+        </div>
+        <div
+          onClick={() => {
+            window.location.href = "https://wa.me/+2347082524010";
+          }}
+          // title="watsapp me"
+          className="cursor-pointer text-3xl mb-2"
+        >
+          <AiOutlineGithub />
+        </div>
+        <div
+          onClick={() => {
+            window.location.href = "https://wa.me/+2347082524010";
+          }}
+          // title="watsapp me"
+          className="cursor-pointer text-3xl mb-2"
+        >
+          <AiFillLinkedin className="text-[#3564da]" />
+        </div>
+      </div>
       <div className="bg" />
       <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#fff"></path>
       <div id="h3">
-        {" "}
         <Typewriter
           options={{
             loop: true,
@@ -86,7 +145,7 @@ export default function Home() {
         />
       </div>
       <Canvas
-        style={{ height: 500 }}
+        // style={{ height: 500 }}
         shadowMap
         camera={{ position: [0, 0, 15] }}
       >
@@ -123,14 +182,14 @@ export default function Home() {
 
       <div id="wh-div" className="w-[100%] h-[250px]  lg:h-[50px]  bg-white">
         <img
-          className=" w-[250px] sm:w-[300px] bottom-[-10%] left-[20%]  sm:left-[60%] md:w-[400px]  lg:w-[400px] absolute md:bottom-[-20%] md:left-[50%] lg:bottom-[-20%] lg:left-[60%]"
+          className=" w-[250px] sm:w-[300px] bottom-[-10%] left-[20%]  sm:left-[60%] md:w-[400px]  lg:w-[400px] absolute md:bottom-[10%] md:left-[50%] lg:bottom-[-10%] lg:left-[60%]"
           src="/astro-mona.webp"
           alt="logo"
         />
       </div>
-      <Wave/>
+      <Wave />
       <div className="bg-mybg">
-        <Ab1/>
+        <Ab1 />
       </div>
     </>
   );

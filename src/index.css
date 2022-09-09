@@ -52,6 +52,7 @@ body {
      --delay: 0.5;
      --rotation: 180;
      --translation: 150;
+     
  }
 
  .spinner div:nth-child(6) {

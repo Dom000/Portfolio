@@ -10,7 +10,7 @@ import Contact from "./Contact";
 function Ab1() {
   const [pressme, setPressMe] = useState(false);
   const [show, setShow] = useState(false);
-
+// console.log(window.innerHeight);
   return (
     <div className="p-5 md:pl-10 lg:pl-10 pb-40">
       <div className="mb-20">
@@ -26,7 +26,7 @@ function Ab1() {
           <p className="text-xl text-[peru] my-3">
             I'm a software engineer who specializes in creating (and sometimes
             designing) exceptional digital experiences. At the moment, I'm
-            concentrating on creating user-friendly, human-centered products.
+            concentrating on creating user-friendl and human-centered products.
           </p>
         </div>
       </div>
@@ -158,14 +158,14 @@ function Ab1() {
                 </div>
               </div>
             </div>
-            <div>
+           { window.innerHeight===1366?null:<div>
               <div
                 onMouseLeave={() => setPressMe(false)}
                 onMouseEnter={() => setPressMe(true)}
                 className="cursor-pointer"
               >
                 <img
-                  className="w-[250px] rounded-md z-10 absolute right-[50px] sm:right-[250px] md:right-[100px] lg:right-[300px]"
+                  className="w-[250px] rounded-md z-10 absolute  right-[50px] sm:right-[250px] md:right-[100px] lg:right-[300px]"
                   src="/1654249796121.jpg"
                   alt="me"
                 />
@@ -177,7 +177,7 @@ function Ab1() {
                   }
                 ></div>
               </div>
-            </div>
+            </div>}
           </div>
         </div>
       </div>
@@ -201,7 +201,7 @@ function Ab1() {
             </div>
             <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
           </div>
-          <div className=" md:absolute lg:absolute mt-[20px] md:ml-[200px] lg:ml-[450px] max-w-[700px]">
+          <div className=" md:absolute lg:absolute mt-[20px]  md:mr-5  lg:ml-[450px] md:ml-[200px] max-w-[700px]">
             <div className="text-right">
               <p className=" italic text-[peru]">-Featured Project-</p>
               <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
@@ -209,7 +209,7 @@ function Ab1() {
                 Halcyon Theme
               </h1>
             </div>
-            <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 md:max-w-[700px] lg:max-w-[700px] h-md:w-[650px] lg:w-[650px]">
+            <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 md:max-w-[700px] lg:max-w-[700px] md:w-[500px] lg:w-[auto]">
               <p className="text-xl text-[peru] my-3">
                 I'm a software engineer who specializes in creating (and
                 sometimes designing) exceptional digital experiences. At the

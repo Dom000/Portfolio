@@ -4,6 +4,9 @@ import "animate.css";
 function Header() {
   return (
     <div className="hidden md:hidden lg:block">
+     
+
+
       <div className="bg-transparent   bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60  flex justify-between fixed w-full p-5 z-20 top-0">
         <div></div>
         <div className="flex justify-between w-[50%]">
