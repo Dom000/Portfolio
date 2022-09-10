@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Fade } from "react-reveal";
 import style from "../contact.css";
-import { BsArrowDown } from "react-icons/bs";
+import { BsArrowDown, BsArrowUp } from "react-icons/bs";
 import { IoIosSend, IoMdSend } from "react-icons/io";
 import { MdWarningAmber, MdVerified } from "react-icons/md";
 // import { useSnackbar } from "notistack";
@@ -164,6 +164,14 @@ const Contact = () => {
               )}
             </span>
           )}
+        </div>
+      </div>
+      <div className="flex justify-center items-center mt-20">
+        {" "}
+        <div className="bg-[#797979]   rounded-full  bg-clip-padding backdrop-filter backdrop-blur-xl flex-col flex justify-center items-center bg-opacity-60    p-1 z-20  ">
+          <span className="">
+            <BsArrowUp className="text-3xl text-white" />
+          </span>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import Typewriter from "typewriter-effect";
 import Wave from "./Wave";
 import { AiOutlineGithub, AiFillLinkedin } from "react-icons/ai";
 import Ab1 from "./Ab1";
+import { BsArrowDown, BsArrowUp } from "react-icons/bs";
 
 function Model({ url }) {
   const { nodes, materials } = useLoader(GLTFLoader, url, draco());
@@ -125,6 +126,7 @@ export default function Home() {
           <AiFillLinkedin className="text-[#3564da]" />
         </div>
       </div>
+
       <div className="bg" />
       <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#fff"></path>
       <div id="h3">
@@ -191,6 +193,8 @@ export default function Home() {
       <div className="bg-mybg">
         <Ab1 />
       </div>
+
+     
     </>
   );
 }
