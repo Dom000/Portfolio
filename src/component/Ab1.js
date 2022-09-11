@@ -7,10 +7,10 @@ import Slide from "react-reveal/Slide";
 import Slider from "./Slider";
 import Contact from "./Contact";
 
-function Ab1() {
+function Ab1({ onClick }) {
   const [pressme, setPressMe] = useState(false);
   const [show, setShow] = useState(false);
-// console.log(window.innerHeight);
+  // console.log(window.innerHeight);
   return (
     <div className="p-5 md:pl-10 lg:pl-10 pb-40">
       <div className="mb-20">
@@ -33,7 +33,7 @@ function Ab1() {
 
       <div>
         <div className="mb-10">
-          <div className="flex mb-10">
+          <div id="About" className="flex mb-10">
             <h1 className="text-[#cfcfcf] font-bold text-3xl lg:text-4xl">
               <span className="text-4xl ">_</span> About Me
             </h1>
@@ -44,15 +44,17 @@ function Ab1() {
           <div className=" md:flex lg:flex space-x-20">
             <div className="md:max-w-[50%] lg:max-w-[50%] mb-10 md:mb-0 lg:mb-0">
               <p className="text-xl text-[peru] my-3">
-                Hello! Godknows is my name, and I adore making stuff on the
-                internet,I work as a full-stack developer. I'm passionate about
-                software development, problem solving, and creating intuitive,
-                dynamic user experiences.
+                I adore making stuff on the internet,I work as a full-stack
+                developer. I'm passionate about software development, problem
+                solving, and creating intuitive, dynamic user experiences.
               </p>
               <p className="text-xl text-[peru] my-3">
                 And I’ve had the privilege of working at{" "}
                 <span className="text-white">inmotion ICT HUB</span>{" "}
-                Portharcourt where i gained most of my experiences.
+                Portharcourt as a front-end intern in 2019, where i gained most
+                of my front-end experiences.I later transitioned into full-stack
+                development in 2021 and have been working as a full-stack
+                developer since then.
               </p>
               <p className="text-xl text-[peru] my-3">
                 Here are a few technologies I’ve been working with recently:
@@ -158,26 +160,28 @@ function Ab1() {
                 </div>
               </div>
             </div>
-           { window.innerHeight===1366?null:<div>
-              <div
-                onMouseLeave={() => setPressMe(false)}
-                onMouseEnter={() => setPressMe(true)}
-                className="cursor-pointer"
-              >
-                <img
-                  className="w-[250px] rounded-md z-10 absolute  right-[50px] sm:right-[250px] md:right-[100px] lg:right-[300px]"
-                  src="/1654249796121.jpg"
-                  alt="me"
-                />
+            {window.innerHeight === 1366 ? null : (
+              <div>
                 <div
-                  className={
-                    pressme
-                      ? "w-[250px] animate__animated animate__slideInRight h-[240px] left-[-20px] md:left-6 relative lg:left-6 top-6 border rounded-md border-[peru]"
-                      : "w-[250px] animate__animated animate__slideInRight -left-16 sm:left-20 h-[250px] relative md:left-8 lg:left-10 top-5 border rounded-md border-[peru]"
-                  }
-                ></div>
+                  onMouseLeave={() => setPressMe(false)}
+                  onMouseEnter={() => setPressMe(true)}
+                  className="cursor-pointer"
+                >
+                  <img
+                    className="w-[250px] rounded-md z-10 absolute  right-[50px] sm:right-[250px] md:right-[100px] lg:right-[300px]"
+                    src="/1654249796121.jpg"
+                    alt="me"
+                  />
+                  <div
+                    className={
+                      pressme
+                        ? "w-[250px] animate__animated animate__slideInRight h-[240px] left-[-20px] md:left-6 relative lg:left-6 top-6 border rounded-md border-[peru]"
+                        : "w-[250px] animate__animated animate__slideInRight -left-16 sm:left-20 h-[250px] relative md:left-8 lg:left-10 top-5 border rounded-md border-[peru]"
+                    }
+                  ></div>
+                </div>
               </div>
-            </div>}
+            )}
           </div>
         </div>
       </div>
@@ -191,7 +195,7 @@ function Ab1() {
             <hr className=" w-[50px] sm:w-[150px] md:w-[350px] lg:w-[400px] mt-2 md:mt-10 lg:mt-10 ml-1" />
           </div>
         </div>
-        <div className=" md:flex lg:flex my-5 mb-8">
+        <div id="Portfolio" className=" md:flex lg:flex my-5 mb-8">
           <div className="relative group max-w-[600px] cursor-pointer">
             <div className="w-full  ">
               <img
@@ -420,7 +424,10 @@ function Ab1() {
 
       <div className="my-10">
         <div className=" flex mb-10">
-          <h1 className="text-[#cfcfcf] font-bold text-3xl lg:text-4xl">
+          <h1
+            id="Reviews"
+            className="text-[#cfcfcf] font-bold text-3xl lg:text-4xl"
+          >
             <span className="text-4xl ">_</span> Reviews of me
           </h1>
           <div>
@@ -430,8 +437,8 @@ function Ab1() {
         <Slider />
       </div>
 
-      <div>
-        <Contact />
+      <div id="Contact">
+        <Contact onClick={onClick} />
       </div>
     </div>
   );

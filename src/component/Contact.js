@@ -9,7 +9,7 @@ import { MdWarningAmber, MdVerified } from "react-icons/md";
 import axios from "axios";
 import Spiner from "./Spiner";
 
-const Contact = () => {
+const Contact = ({onClick}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
@@ -166,7 +166,7 @@ const Contact = () => {
           )}
         </div>
       </div>
-      <div className="flex justify-center items-center mt-20">
+      <div onClick={()=>onClick()} className="flex cursor-pointer justify-center items-center mt-20">
         {" "}
         <div className="bg-[#797979]   rounded-full  bg-clip-padding backdrop-filter backdrop-blur-xl flex-col flex justify-center items-center bg-opacity-60    p-1 z-20  ">
           <span className="">

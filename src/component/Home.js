@@ -64,9 +64,12 @@ function Loading() {
   );
 }
 
-export default function Home() {
+export default function Home({ onClick }) {
   const [switcher, setSwitcher] = useState(false);
   const [switcher2, setSwitcher2] = useState(false);
+
+  const year = new Date().getFullYear();
+
   return (
     <>
       <div className="bg-[#797979]  rounded-full  bg-clip-padding backdrop-filter backdrop-blur-xl flex-col flex justify-center items-center bg-opacity-60 right-1  fixed  p-1 z-20 top-20 mr-1">
@@ -109,7 +112,7 @@ export default function Home() {
         </div>
         <div
           onClick={() => {
-            window.location.href = "https://wa.me/+2347082524010";
+            window.location.href = "https://github.com/Dom000";
           }}
           // title="watsapp me"
           className="cursor-pointer text-3xl mb-2"
@@ -118,7 +121,8 @@ export default function Home() {
         </div>
         <div
           onClick={() => {
-            window.location.href = "https://wa.me/+2347082524010";
+            window.location.href =
+              "https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BaNacoGWFS7q26264iXoimg%3D%3D";
           }}
           // title="watsapp me"
           className="cursor-pointer text-3xl mb-2"
@@ -191,10 +195,11 @@ export default function Home() {
       </div>
       <Wave />
       <div className="bg-mybg">
-        <Ab1 />
+        <Ab1 onClick={onClick} />
+        <p className="text-white mt-10 text-center">
+          Godknows Egi{"  "}Ⓒ {year} All rights reserved
+        </p>
       </div>
-
-     
     </>
   );
 }
