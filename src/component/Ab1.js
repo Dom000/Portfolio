@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "animate.css";
 import { VscGithub } from "react-icons/vsc";
 import { BsGlobe } from "react-icons/bs";
@@ -6,11 +6,49 @@ import { BsArrowDown } from "react-icons/bs";
 import Slide from "react-reveal/Slide";
 import Slider from "./Slider";
 import Contact from "./Contact";
+import axios from "axios";
+import BASE_URL from "../api";
 
 function Ab1({ onClick }) {
   const [pressme, setPressMe] = useState(false);
   const [show, setShow] = useState(false);
+  const [project, setProject] = useState([]);
+  const [skills, setSkills] = useState([]);
   // console.log(window.innerHeight);
+
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}all-project`)
+      .then((res) => {
+        // res.data?.data?.shift();
+        setProject(res.data?.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // ______________________________________________________________________
+    axios
+      .get(`${BASE_URL}getallskills`)
+      .then((res) => {
+        // console.log(res.data?.data[0].mySkills);
+        // res.data?.data?.shift();
+        setSkills(res.data?.data[0].mySkills);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+    }
+    return a;
+  }
   return (
     <div className="p-5 md:pl-10 lg:pl-10 pb-40">
       <div className="mb-20">
@@ -61,103 +99,19 @@ function Ab1({ onClick }) {
               </p>
 
               <div className="grid grid-cols-2 gap-5 max-w-[450px]">
-                <div className="flex space-x-3">
-                  <span class="flex h-3 w-3 justify-center items-center mt-4">
-                    <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-[#f5b778] opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[peru]"></span>
-                  </span>
-                  <div>
-                    <p className="text-[14px] italic text-[peru] my-3">HTML</p>
+                {skills?.map((skill, index) => (
+                  <div key={index} className="flex space-x-3">
+                    <span class="flex h-3 w-3 justify-center items-center mt-4">
+                      <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-[#f5b778] opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-[peru]"></span>
+                    </span>
+                    <div>
+                      <p className="text-[14px] italic text-[peru] my-3">
+                        {skill}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex space-x-3">
-                  <span class="flex h-3 w-3 justify-center items-center mt-4">
-                    <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-[#f5b778] opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[peru]"></span>
-                  </span>
-                  <div>
-                    <p className="text-[14px] italic text-[peru] my-3">
-                      CSS/Tailwind
-                    </p>
-                  </div>
-                </div>
-                <div className="flex space-x-3">
-                  <span class="flex h-3 w-3 justify-center items-center mt-4">
-                    <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-[#f5b778] opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[peru]"></span>
-                  </span>
-                  <div>
-                    <p className="text-[14px] italic text-[peru] my-3">
-                      Javascript
-                    </p>
-                  </div>
-                </div>
-                <div className="flex space-x-3">
-                  <span class="flex h-3 w-3 justify-center items-center mt-4">
-                    <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-[#f5b778] opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[peru]"></span>
-                  </span>
-                  <div>
-                    <p className="text-[14px] italic text-[peru] my-3">
-                      Typescript
-                    </p>
-                  </div>
-                </div>
-                <div className="flex space-x-3">
-                  <span class="flex h-3 w-3 justify-center items-center mt-4">
-                    <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-[#f5b778] opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[peru]"></span>
-                  </span>
-                  <div>
-                    <p className="text-[14px] italic text-[peru] my-3">
-                      Node/Express.js
-                    </p>
-                  </div>
-                </div>
-                <div className="flex space-x-3">
-                  <span class="flex h-3 w-3 justify-center items-center mt-4">
-                    <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-[#f5b778] opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[peru]"></span>
-                  </span>
-                  <div>
-                    <p className="text-[14px] italic text-[peru] my-3">
-                      Next.js
-                    </p>
-                  </div>
-                </div>
-                <div className="flex space-x-3">
-                  <span class="flex h-3 w-3 justify-center items-center mt-4">
-                    <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-[#f5b778] opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[peru]"></span>
-                  </span>
-                  <div>
-                    <p className="text-[14px] italic text-[peru] my-3">
-                      React.js
-                    </p>
-                  </div>
-                </div>
-                <div className="flex space-x-3">
-                  <span class="flex h-3 w-3 justify-center items-center mt-4">
-                    <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-[#f5b778] opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[peru]"></span>
-                  </span>
-                  <div>
-                    <p className="text-[14px] italic text-[peru] my-3">
-                      React-Native
-                    </p>
-                  </div>
-                </div>
-                <div className="flex space-x-3">
-                  <span class="flex h-3 w-3 justify-center items-center mt-4">
-                    <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-[#f5b778] opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[peru]"></span>
-                  </span>
-                  <div>
-                    <p className="text-[14px] italic text-[peru] my-3">
-                      Wordpress/CMS
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             {window.innerHeight === 1366 ? null : (
@@ -200,7 +154,7 @@ function Ab1({ onClick }) {
             <div className="w-full  ">
               <img
                 className="rounded-md w-[550px] h-[400px] object-cover"
-                src="/1654249796121.jpg"
+                src={project[0]?.project_img}
               />
             </div>
             <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
@@ -210,25 +164,20 @@ function Ab1({ onClick }) {
               <p className=" italic text-[peru]">-Featured Project-</p>
               <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
                 {" "}
-                Halcyon Theme
+                {project[0]?.project_name}
               </h1>
             </div>
             <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 md:max-w-[700px] lg:max-w-[700px] md:w-[500px] lg:w-[auto]">
               <p className="text-xl text-[peru] my-3">
-                I'm a software engineer who specializes in creating (and
-                sometimes designing) exceptional digital experiences. At the
-                moment, I'm concentrating on creating user-friendly,
-                human-centered products.
+                {project[0]?.project_description}
               </p>
             </div>
             <div className="my-5 flex flex-wrap justify-end ">
-              <pre className="text-[#b9b9b9] mr-3">React</pre>
-              <pre className="text-[#b9b9b9] mr-3">React</pre>
-              <pre className="text-[#b9b9b9] mr-3">React</pre>
-              <pre className="text-[#b9b9b9] mr-3">React</pre>
-              <pre className="text-[#b9b9b9] mr-3">React</pre>
-              <pre className="text-[#b9b9b9] mr-3">React</pre>
-              <pre className="text-[#b9b9b9] mr-3">React</pre>
+              {project[0]?.built_with?.map((ite, ind) => (
+                <pre key={ind} className="text-[#b9b9b9] mr-3">
+                  {ite}
+                </pre>
+              ))}
             </div>
             <div className="flex justify-end mr-[65px]">
               <div className="flex space-x-10 text-[#cfcfcf] ">
@@ -241,153 +190,56 @@ function Ab1({ onClick }) {
               </div>
             </div>
           </div>
-        </div>{" "}
+        </div>
         <Slide top when={show}>
-          {show && (
-            <div>
-              <div className=" md:flex lg:flex my-5 mb-8">
-                <div className="relative group max-w-[600px] cursor-pointer">
-                  <div className="w-full  ">
-                    <img
-                      className="rounded-md w-[550px] h-[400px] object-cover"
-                      src="/1654249796121.jpg"
-                    />
-                  </div>
-                  <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
-                </div>
-                <div className=" md:absolute lg:absolute mt-[20px] md:ml-[200px] lg:ml-[450px] max-w-[700px]">
-                  <div className="text-right">
-                    <p className=" italic text-[peru]">-Featured Project-</p>
-                    <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
-                      {" "}
-                      Halcyon Theme
-                    </h1>
-                  </div>
-                  <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 max-w-[700px] h-w-[650px]">
-                    <p className="text-xl text-[peru] my-3">
-                      I'm a software engineer who specializes in creating (and
-                      sometimes designing) exceptional digital experiences. At
-                      the moment, I'm concentrating on creating user-friendly,
-                      human-centered products.
-                    </p>
-                  </div>
-                  <div className="my-5 flex flex-wrap justify-end ">
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  </div>
-                  <div className="flex justify-end mr-[65px]">
-                    <div className="flex space-x-10 text-[#cfcfcf] ">
-                      <a href="#">
-                        <VscGithub className="text-[20px] hover:text-[peru]" />
-                      </a>
-                      <a href="#">
-                        <BsGlobe className=" text-[20px] hover:text-[peru]" />
-                      </a>
+          {show &&
+            project?.shift() &&
+            shuffle(project).map((item, index) => (
+              <div key={index}>
+                <div className=" md:flex lg:flex my-5 mb-8">
+                  <div className="relative group max-w-[600px] cursor-pointer">
+                    <div className="w-full  ">
+                      <img
+                        className="rounded-md w-[550px] h-[400px] object-cover"
+                        src={item?.project_img}
+                      />
                     </div>
+                    <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
                   </div>
-                </div>
-              </div>{" "}
-              <div className=" md:flex lg:flex my-5 mb-8">
-                <div className="relative group max-w-[600px] cursor-pointer">
-                  <div className="w-full  ">
-                    <img
-                      className="rounded-md w-[550px] h-[400px] object-cover"
-                      src="/1654249796121.jpg"
-                    />
-                  </div>
-                  <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
-                </div>
-                <div className=" md:absolute lg:absolute mt-[20px] md:ml-[200px] lg:ml-[450px] max-w-[700px]">
-                  <div className="text-right">
-                    <p className=" italic text-[peru]">-Featured Project-</p>
-                    <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
-                      {" "}
-                      Halcyon Theme
-                    </h1>
-                  </div>
-                  <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 max-w-[700px] h-w-[650px]">
-                    <p className="text-xl text-[peru] my-3">
-                      I'm a software engineer who specializes in creating (and
-                      sometimes designing) exceptional digital experiences. At
-                      the moment, I'm concentrating on creating user-friendly,
-                      human-centered products.
-                    </p>
-                  </div>
-                  <div className="my-5 flex flex-wrap justify-end ">
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  </div>
-                  <div className="flex justify-end mr-[65px]">
-                    <div className="flex space-x-10 text-[#cfcfcf] ">
-                      <a href="#">
-                        <VscGithub className="text-[20px] hover:text-[peru]" />
-                      </a>
-                      <a href="#">
-                        <BsGlobe className=" text-[20px] hover:text-[peru]" />
-                      </a>
+                  <div className=" md:absolute lg:absolute mt-[20px] md:ml-[200px] lg:ml-[450px] max-w-[700px]">
+                    <div className="text-right">
+                      <p className=" italic text-[peru]">-Featured Project-</p>
+                      <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
+                        {" "}
+                        {item?.project_title}
+                      </h1>
                     </div>
-                  </div>
-                </div>
-              </div>{" "}
-              <div className=" md:flex lg:flex my-5 mb-8">
-                <div className="relative group max-w-[600px] cursor-pointer">
-                  <div className="w-full  ">
-                    <img
-                      className="rounded-md w-[550px] h-[400px] object-cover"
-                      src="/1654249796121.jpg"
-                    />
-                  </div>
-                  <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
-                </div>
-                <div className=" md:absolute lg:absolute mt-[20px] md:ml-[200px] lg:ml-[450px] max-w-[700px]">
-                  <div className="text-right">
-                    <p className=" italic text-[peru]">-Featured Project-</p>
-                    <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
-                      {" "}
-                      Halcyon Theme
-                    </h1>
-                  </div>
-                  <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 max-w-[700px] h-w-[650px]">
-                    <p className="text-xl text-[peru] my-3">
-                      I'm a software engineer who specializes in creating (and
-                      sometimes designing) exceptional digital experiences. At
-                      the moment, I'm concentrating on creating user-friendly,
-                      human-centered products.
-                    </p>
-                  </div>
-                  <div className="my-5 flex flex-wrap justify-end ">
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                    <pre className="text-[#b9b9b9] mr-3">React</pre>
-                  </div>
-                  <div className="flex justify-end mr-[65px]">
-                    <div className="flex space-x-10 text-[#cfcfcf] ">
-                      <a href="#">
-                        <VscGithub className="text-[20px] hover:text-[peru]" />
-                      </a>
-                      <a href="#">
-                        <BsGlobe className=" text-[20px] hover:text-[peru]" />
-                      </a>
+                    <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 max-w-[700px] h-w-[650px]">
+                      <p className="text-xl text-[peru] my-3">
+                        {item?.project_description}
+                      </p>
+                    </div>
+                    <div className="my-5 flex flex-wrap justify-end ">
+                      {item?.built_with?.map((bt, ind) => (
+                        <pre key={ind} className="text-[#b9b9b9] mr-3">
+                          {bt}
+                        </pre>
+                      ))}
+                    </div>
+                    <div className="flex justify-end mr-[65px]">
+                      <div className="flex space-x-10 text-[#cfcfcf] ">
+                        <a href={item?.project_github}>
+                          <VscGithub className="text-[20px] hover:text-[peru]" />
+                        </a>
+                        <a href={item?.project_link}>
+                          <BsGlobe className=" text-[20px] hover:text-[peru]" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+            ))}
         </Slide>
         {show ? (
           <div

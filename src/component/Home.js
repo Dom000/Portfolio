@@ -8,7 +8,9 @@ import Typewriter from "typewriter-effect";
 import Wave from "./Wave";
 import { AiOutlineGithub, AiFillLinkedin } from "react-icons/ai";
 import Ab1 from "./Ab1";
-import { BsArrowDown, BsArrowUp } from "react-icons/bs";
+import axios from "axios";
+import BASE_URL from "../api";
+import { toast } from "react-toastify";
 
 function Model({ url }) {
   const { nodes, materials } = useLoader(GLTFLoader, url, draco());
@@ -64,12 +66,48 @@ function Loading() {
   );
 }
 
-export default function Home({ onClick }) {
+export default function Home({ onClick, views, likes }) {
   const [switcher, setSwitcher] = useState(false);
   const [switcher2, setSwitcher2] = useState(false);
 
   const year = new Date().getFullYear();
-
+  const user = localStorage.getItem("usermy87");
+  const handleLike = async () => {
+    setSwitcher2(!switcher2);
+    if (switcher2) {
+      await axios.put(`${BASE_URL}removeLike/${user}`).then((res) => {
+        if (res?.data?.status) {
+          toast.success(res?.data?.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      });
+      console.log("notliked");
+    } else {
+      await axios.put(`${BASE_URL}addLike/${user}`).then((res) => {
+        if (res?.data?.status) {
+          toast.success(res?.data?.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            
+          });
+        }
+        console.log(res?.data);
+      });
+      console.log("liked");
+    }
+  };
   return (
     <>
       <div className="bg-[#797979]  rounded-full  bg-clip-padding backdrop-filter backdrop-blur-xl flex-col flex justify-center items-center bg-opacity-60 right-1  fixed  p-1 z-20 top-20 mr-1">
@@ -82,21 +120,19 @@ export default function Home({ onClick }) {
         >
           {switcher ? (
             <pre className="text-[8px] tracking-wider px-1  bg-[peru]  text-center absolute right-6 rounded-full">
-              122 viewed this site
+              {views} people viewed this site
             </pre>
           ) : null}
           👀
         </div>
         <div
-          onClick={() => {
-            setSwitcher2(!switcher2);
-          }}
+          onClick={handleLike}
           title="122 like this site"
           className="cursor-pointer text-2xl mb-[10px]"
         >
           {switcher2 ? (
             <pre className="text-[8px] px-1 tracking-wider  bg-[peru]  text-center absolute right-6 rounded-full">
-              122 viewed this site
+              {likes} people liked this site
             </pre>
           ) : null}
           ❤️
