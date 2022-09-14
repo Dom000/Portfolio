@@ -150,14 +150,14 @@ function Ab1({ onClick }) {
           </div>
         </div>
         <div id="Portfolio" className=" md:flex lg:flex my-5 mb-8">
-          <div className="relative group max-w-[600px] cursor-pointer">
+          <div className="relative group max-w-[600px]  cursor-pointer">
             <div className="w-full  ">
               <img
-                className="rounded-md w-[550px] h-[400px] object-cover"
+                className="rounded-md w-[550px] h-[300px] md:h-[400px] lg:h-[400px] object-cover"
                 src={project[0]?.project_img}
               />
             </div>
-            <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
+            <div className=" group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5 h-[300px] md:h-[400px] lg:h-[400px] w-full rounded-md "></div>
           </div>
           <div className=" md:absolute lg:absolute mt-[20px]  md:mr-5  lg:ml-[450px] md:ml-[200px] max-w-[700px]">
             <div className="text-right">
@@ -192,8 +192,11 @@ function Ab1({ onClick }) {
           </div>
         </div>
         {/* <Slide top when={show}> */}
-          {show &&
-            project?.filter((item)=>{return item !==project[0]}) 
+        {show &&
+          project
+            ?.filter((item) => {
+              return item !== project[0];
+            })
             .map((item, index) => (
               <div
                 className="animate__slideInDown animate__animated"
@@ -203,11 +206,11 @@ function Ab1({ onClick }) {
                   <div className="relative group max-w-[600px] cursor-pointer">
                     <div className="w-full  ">
                       <img
-                        className="rounded-md w-[550px] h-[400px] object-cover"
+                        className="rounded-md w-[550px] h-[300px] md:h-[400px] lg:h-[400px] object-cover"
                         src={item?.project_img}
                       />
                     </div>
-                    <div className="h-[400px] group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5  w-full rounded-md "></div>
+                    <div className=" group-hover:bg-transparent  bg-[peru] opacity-60 absolute bottom-[0.1px] z-5 h-[300px] md:h-[400px] lg:h-[400px] w-full rounded-md "></div>
                   </div>
                   <div className=" md:absolute lg:absolute mt-[20px] md:ml-[200px] lg:ml-[450px] max-w-[700px]">
                     <div className="text-right">
