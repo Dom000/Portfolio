@@ -191,11 +191,14 @@ function Ab1({ onClick }) {
             </div>
           </div>
         </div>
-        <Slide top when={show}>
+        {/* <Slide top when={show}> */}
           {show &&
-            project?.shift() &&
-            shuffle(project).map((item, index) => (
-              <div key={index}>
+            project?.filter((item)=>{return item !==project[0]}) 
+            .map((item, index) => (
+              <div
+                className="animate__slideInDown animate__animated"
+                key={index}
+              >
                 <div className=" md:flex lg:flex my-5 mb-8">
                   <div className="relative group max-w-[600px] cursor-pointer">
                     <div className="w-full  ">
@@ -240,7 +243,7 @@ function Ab1({ onClick }) {
                 </div>
               </div>
             ))}
-        </Slide>
+        {/* </Slide> */}
         {show ? (
           <div
             onClick={() => {
