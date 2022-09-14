@@ -66,9 +66,8 @@ function App() {
   };
   return (
     <div>
-      <ToastContainer />
       <Header />
-      <Home likes={totallikes} views={totalviews} onClick={scrollAction} />
+      <Home likes={totallikes} setTotallikes={setTotallikes} setTotalviews={setTotalviews} views={totalviews} onClick={scrollAction} />
     </div>
   );
 }

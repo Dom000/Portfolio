@@ -16,7 +16,7 @@ function Slid({ items }) {
     } else {
       setCount(count + 1);
     }
-  }, 4000);
+  }, 10000);
 
   return (
     <div className="flex justify-center items-center">

@@ -11,6 +11,8 @@ import Ab1 from "./Ab1";
 import axios from "axios";
 import BASE_URL from "../api";
 import { toast } from "react-toastify";
+import "animate.css";
+import { notify, NotifyWrapper } from "./Notify";
 
 function Model({ url }) {
   const { nodes, materials } = useLoader(GLTFLoader, url, draco());
@@ -66,9 +68,16 @@ function Loading() {
   );
 }
 
-export default function Home({ onClick, views, likes }) {
+export default function Home({
+  onClick,
+  views,
+  likes,
+  setTotallikes,
+  setTotalviews,
+}) {
   const [switcher, setSwitcher] = useState(false);
   const [switcher2, setSwitcher2] = useState(false);
+  const [content, setContent] = useState({});
 
   const year = new Date().getFullYear();
   const user = localStorage.getItem("usermy87");
@@ -77,14 +86,19 @@ export default function Home({ onClick, views, likes }) {
     if (switcher2) {
       await axios.put(`${BASE_URL}removeLike/${user}`).then((res) => {
         if (res?.data?.status) {
-          toast.success(res?.data?.message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
+          setContent({
+            type: "error",
+            message: `Like removed successfully`,
+            positions: "top-left",
+          });
+
+          axios.get(`${BASE_URL}totalLikes`).then((res) => {
+            console.log(res.data?.data);
+            setTotallikes(res.data?.data);
+          });
+          axios.get(`${BASE_URL}totalView`).then((res) => {
+            console.log(res.data?.data);
+            setTotalviews(res.data?.data);
           });
         }
       });
@@ -92,15 +106,19 @@ export default function Home({ onClick, views, likes }) {
     } else {
       await axios.put(`${BASE_URL}addLike/${user}`).then((res) => {
         if (res?.data?.status) {
-          toast.success(res?.data?.message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            
+          setContent({
+            type: "success",
+            message: `Like added successfully`,
+            positions: "top-left",
+          });
+
+          axios.get(`${BASE_URL}totalLikes`).then((res) => {
+            console.log(res.data?.data);
+            setTotallikes(res.data?.data);
+          });
+          axios.get(`${BASE_URL}totalView`).then((res) => {
+            console.log(res.data?.data);
+            setTotalviews(res.data?.data);
           });
         }
         console.log(res?.data);
@@ -108,18 +126,24 @@ export default function Home({ onClick, views, likes }) {
       console.log("liked");
     }
   };
+
+  const handleView = async () => {
+    setSwitcher(!switcher);
+  };
+
+  console.log(content);
   return (
     <>
+      <NotifyWrapper props={content} />
+
       <div className="bg-[#797979]  rounded-full  bg-clip-padding backdrop-filter backdrop-blur-xl flex-col flex justify-center items-center bg-opacity-60 right-1  fixed  p-1 z-20 top-20 mr-1">
         <div
-          onClick={() => {
-            setSwitcher(!switcher);
-          }}
-          title="122 viewd this site"
+          onClick={handleView}
+          title={`${views} viewd this site`}
           className="cursor-pointer text-2xl mb-2"
         >
           {switcher ? (
-            <pre className="text-[8px] tracking-wider px-1  bg-[peru]  text-center absolute right-6 rounded-full">
+            <pre className="text-[8px] tracking-wider animate__fadeInRight animate__animated px-1  bg-[peru]  text-center absolute right-6 rounded-full">
               {views} people viewed this site
             </pre>
           ) : null}
@@ -127,11 +151,11 @@ export default function Home({ onClick, views, likes }) {
         </div>
         <div
           onClick={handleLike}
-          title="122 like this site"
+          title={`${likes} like this site`}
           className="cursor-pointer text-2xl mb-[10px]"
         >
-          {switcher2 ? (
-            <pre className="text-[8px] px-1 tracking-wider  bg-[peru]  text-center absolute right-6 rounded-full">
+          {switcher ? (
+            <pre className="text-[8px] px-1 tracking-wider animate__fadeInRight animate__animated bg-[peru]  text-center absolute right-6 rounded-full">
               {likes} people liked this site
             </pre>
           ) : null}
