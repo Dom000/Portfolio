@@ -164,7 +164,7 @@ function Ab1({ onClick }) {
               <p className=" italic text-[peru]">-Featured Project-</p>
               <h1 className="text-[#cfcfcf] mb-3 font-bold text-2xl lg:text-4xl">
                 {" "}
-                {project[0]?.project_name}
+                {project[0]?.project_title}
               </h1>
             </div>
             <div className="bg-mybg2 z-10  rounded-md shadow-md p-3 md:max-w-[700px] lg:max-w-[700px] md:w-[500px] lg:w-[auto]">
