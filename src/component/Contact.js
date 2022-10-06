@@ -73,7 +73,7 @@ const Contact = ({ onClick }) => {
             setMessage(res.data.msg);
             setContent({
               type: "success",
-              message: `Message sent successfully`,
+              message: `Message sent`,
               positions: "top-left",
             });
           } else {
@@ -154,18 +154,16 @@ const Contact = ({ onClick }) => {
                 }}
                 className="flex mt-16 mb-7 justify-center items-center"
               >
-                <button className="border hover:bg-[peru] hover:border-white border-[peru] rounded-full text-white px-5 py-1 text-center flex justify-center items-center flex-col ">
-                  {loading && message === "" ? (
-                    <Spiner />
-                  ) : (
-                    <>
-                      <span className="animate-bounce">
-                        <BsArrowDown />
-                      </span>
-                      Submit
-                    </>
-                  )}
-                </button>
+                {loading && message === "" ? (
+                  <Spiner />
+                ) : (
+                  <button className="border hover:bg-[peru] hover:border-white border-[peru] rounded-full text-white px-5 py-1 text-center flex justify-center items-center flex-col ">
+                    <span className="animate-bounce">
+                      <BsArrowDown />
+                    </span>
+                    Submit
+                  </button>
+                )}
               </div>
             </form>
 
